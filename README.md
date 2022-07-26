@@ -1,15 +1,16 @@
 # **ProtoTracer: 3D Rendering and Animation Engine**
-This project is a live 3D rendering and animation engine designed for use on microcontrollers.
+This project is a live 3D rendering and animation engine designed for use on the RPI4 and CM4. It's configured to run only 64x32 HUB75 LED panels. 
+This code base uses Hzeller's LED matrix driver to handle the bit banging( https://github.com/hzeller/rpi-rgb-led-matrix ).
 
+Things to do:
+  * Write an I2C, I2S, and SPI driver for the most common proto peripherals
+  * Offload the hub75 signal generation to a microprocessor either via SPI, Ethernet, or High Speed USB.
+  * Optimizations
+  
 ## Demonstration:
 As a quick way to showcase the capabilities of this software, here is a demo showing a live rendering of a rotating and textured .OBJ file:
 
 ![SpyroExample](https://user-images.githubusercontent.com/77935580/130149757-41306da9-5296-42f5-86bc-87f785d9e56b.gif)
-
-## Recommended platform requirements:
-* 32-bit FPU
-* 200MHz+ processor
-* At least 80KB dynamic memory
 
 This codebase has been tested on an Arduino Mega (smaller .OBJ file with a 89 pixel matrix) and on a Teensy 4.0 (2000 triangle scene with a 2,804 pixel matrix).
 
