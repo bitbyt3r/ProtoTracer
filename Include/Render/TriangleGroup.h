@@ -96,7 +96,7 @@ public:
         triangles = new Triangle3D[triangleCount];//copy to new array
 
         int vCounter = 0, tCounter = 0, vOffset = 0;
-#pragma omp simd collapse(2)
+
         for(int i = 0; i < triangleGroupCount; i++){
             for(int j = 0; j < triangleGroups[i]->GetVertexCount(); j++){
                 vertices[vCounter] = Vector3D(triangleGroups[i]->GetVertices()[j]);
