@@ -60,9 +60,10 @@ public:
 		
 		options.cols = 64;
 		options.rows = 32;
-		options.chain_length = 2;
-		options.hardware_mapping = "adafruit-hat-pwm";
-		runtime.gpio_slowdown = 2;
+		options.chain_length = 1;
+		options.parallel = 2;
+		//options.hardware_mapping = "adafruit-hat-pwm";
+		//runtime.gpio_slowdown = 2;
 
 		matrix = led_matrix_create_from_options_and_rt_options(&options, &runtime);
 		
@@ -88,10 +89,10 @@ public:
 				led_canvas_set_pixel(backBuffer, x, y + 24, (uint8_t)cam_4_Pixels.GetPixel(pixelNum)->Color.R, (uint8_t)cam_4_Pixels.GetPixel(pixelNum)->Color.G, (uint8_t)cam_4_Pixels.GetPixel(pixelNum)->Color.B);
 				
 				//Panel 2
-				led_canvas_set_pixel(backBuffer, 64 + x, y, (uint8_t)cam_1_Pixels.GetPixel(pixelNum)->Color.R, (uint8_t)cam_1_Pixels.GetPixel(pixelNum)->Color.G, (uint8_t)cam_1_Pixels.GetPixel(pixelNum)->Color.B);
-				led_canvas_set_pixel(backBuffer, 64 + x, y + 8, (uint8_t)cam_2_Pixels.GetPixel(pixelNum)->Color.R, (uint8_t)cam_2_Pixels.GetPixel(pixelNum)->Color.G, (uint8_t)cam_2_Pixels.GetPixel(pixelNum)->Color.B);
-				led_canvas_set_pixel(backBuffer, 64 + x, y + 16, (uint8_t)cam_3_Pixels.GetPixel(pixelNum)->Color.R, (uint8_t)cam_3_Pixels.GetPixel(pixelNum)->Color.G, (uint8_t)cam_3_Pixels.GetPixel(pixelNum)->Color.B);
-				led_canvas_set_pixel(backBuffer, 64 + x, y + 24, (uint8_t)cam_4_Pixels.GetPixel(pixelNum)->Color.R, (uint8_t)cam_4_Pixels.GetPixel(pixelNum)->Color.G, (uint8_t)cam_4_Pixels.GetPixel(pixelNum)->Color.B);
+				led_canvas_set_pixel(backBuffer, 64-x, y + 32, (uint8_t)cam_1_Pixels.GetPixel(pixelNum)->Color.R, (uint8_t)cam_1_Pixels.GetPixel(pixelNum)->Color.G, (uint8_t)cam_1_Pixels.GetPixel(pixelNum)->Color.B);
+				led_canvas_set_pixel(backBuffer, 64-x, y + 40, (uint8_t)cam_2_Pixels.GetPixel(pixelNum)->Color.R, (uint8_t)cam_2_Pixels.GetPixel(pixelNum)->Color.G, (uint8_t)cam_2_Pixels.GetPixel(pixelNum)->Color.B);
+				led_canvas_set_pixel(backBuffer, 64-x, y + 48, (uint8_t)cam_3_Pixels.GetPixel(pixelNum)->Color.R, (uint8_t)cam_3_Pixels.GetPixel(pixelNum)->Color.G, (uint8_t)cam_3_Pixels.GetPixel(pixelNum)->Color.B);
+				led_canvas_set_pixel(backBuffer, 64-x, y + 56, (uint8_t)cam_4_Pixels.GetPixel(pixelNum)->Color.R, (uint8_t)cam_4_Pixels.GetPixel(pixelNum)->Color.G, (uint8_t)cam_4_Pixels.GetPixel(pixelNum)->Color.B);
 			}
 		}
 #pragma omp critical(swap_buffers)
